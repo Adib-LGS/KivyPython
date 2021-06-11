@@ -7,11 +7,13 @@ from kivy.properties import StringProperty, BooleanProperty
 # 2 import object Widget + Use Kv file
 class WidgetsExample(GridLayout):
     count = 0
-    activ_counter = BooleanProperty(False)
+    active_counter = BooleanProperty(False)
     my_text = StringProperty("Cool")
+    slider_value_txt = StringProperty("Value")
+
 
     def on_button_click(self):
-        if self.activ_counter:
+        if self.active_counter:
             self.count += 1
             self.my_text = str(self.count)
 
@@ -21,13 +23,21 @@ class WidgetsExample(GridLayout):
         if widget.state == "down":
             print("Man down")
             widget.text = "ON"
-            self.activ_counter = True
+            self.active_counter = True
         else:
             print("Man normal state is alive")
             widget.text = "OFF"
-            self.activ_counter = False
+            self.active_counter = False
 
 
+    def on_switch_active(self, widget):
+        print("Switch: " + str(widget.active))
+
+
+    def slider_value(self, widget):
+        final_slider_value = str(int(widget.value))
+        print("Slider: " + final_slider_value)
+        self.slider_value_txt = final_slider_value
 
 
 

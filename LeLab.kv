@@ -10,9 +10,23 @@ WidgetsExample:
     Button:
         text: "Count"
         on_press: root.on_button_click()
-        disabled: not root.activ_counter
+        disabled: not root.active_counter
     Label:
         text: root.my_text
+        font_name: "fonts/Lcd.ttf"
+        font_size: "78dp"
+        color: 1, 0.7, 1, 1
+    Switch:
+        on_active: root.on_switch_active(self)
+        size_hint: None, 1
+        widht: "99dp"
+    Slider:
+        min: 0
+        max: 100
+        value: 50
+        on_value: root.slider_value(self)
+    Label:
+        text: root.slider_value_txt
         font_name: "fonts/Lcd.ttf"
         font_size: "78dp"
         color: 1, 0.7, 1, 1
