@@ -21,12 +21,13 @@ WidgetsExample:
         size_hint: None, 1
         widht: "99dp"
     Slider:
+        id: slide
         min: 0
         max: 100
         value: 50
-        on_value: root.slider_value(self)
+        # on_value: root.slider_value(self)
     Label:
-        text: root.slider_value_txt
+        text: str(int(slide.value))
         font_name: "fonts/Lcd.ttf"
         font_size: "78dp"
-        color: 1, 0.7, 1, 1
+        color: 0.1, 1, 1, 1

@@ -37,7 +37,7 @@ class WidgetsExample(GridLayout):
     def slider_value(self, widget):
         final_slider_value = str(int(widget.value))
         print("Slider: " + final_slider_value)
-        self.slider_value_txt = final_slider_value
+        # self.slider_value_txt = final_slider_value
 
 
 
