@@ -1,9 +1,18 @@
-WidgetsExemple:
+WidgetsExample:
 
-<WidgetsExemple@GridLayout>:
+<WidgetsExample@GridLayout>:
     cols: 3
+    ToggleButton:
+        text: "OFF"
+        on_state: root.on_toggle_state(self)
+        size_hint: None, 1
+        widht: "99dp"
     Button:
         text: "Count"
         on_press: root.on_button_click()
+        disabled: not root.activ_counter
     Label:
         text: root.my_text
+        font_name: "fonts/Lcd.ttf"
+        font_size: "78dp"
+        color: 1, 0.7, 1, 1
