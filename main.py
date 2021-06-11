@@ -7,9 +7,10 @@ from kivy.properties import StringProperty
 # 2 import object Widget + Use Kv file
 class WidgetsExemple(GridLayout):
     my_text = StringProperty("Cool")
+    count = 0
     def on_button_click(self):
-        print('Cool Up')
-        self.my_text = "Test Cool"
+        self.count += 1
+        self.my_text = str(self.count)
 
 
 # 3 Create our Object
