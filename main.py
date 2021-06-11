@@ -1,16 +1,15 @@
 # First things to do before coding
 from kivy.app import App
-from kivy.uix.widget import Widget
-from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.gridlayout import GridLayout
+from kivy.properties import StringProperty
 
 
 # 2 import object Widget + Use Kv file
-class MainWidget(Widget):
-    pass
-
-
-class BoxLayoutExemple(BoxLayout):
-    pass
+class WidgetsExemple(GridLayout):
+    my_text = StringProperty("Cool")
+    def on_button_click(self):
+        print('Cool Up')
+        self.my_text = "Test Cool"
 
 
 # 3 Create our Object
