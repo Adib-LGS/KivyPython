@@ -10,13 +10,12 @@ class WidgetsExample(GridLayout):
     active_counter = BooleanProperty(False)
     my_text = StringProperty("Cool")
     slider_value_txt = StringProperty("Value")
-
+    txt_input_str = StringProperty()
 
     def on_button_click(self):
         if self.active_counter:
             self.count += 1
             self.my_text = str(self.count)
-
 
     def on_toggle_state(self, widget):
         # print(widget.state)
@@ -29,17 +28,16 @@ class WidgetsExample(GridLayout):
             widget.text = "OFF"
             self.active_counter = False
 
-
     def on_switch_active(self, widget):
         print("Switch: " + str(widget.active))
-
 
     def slider_value(self, widget):
         final_slider_value = str(int(widget.value))
         print("Slider: " + final_slider_value)
         # self.slider_value_txt = final_slider_value
 
-
+    def on_txt_validate(self, widget):
+        self.txt_input_str = widget.text
 
 
 # 3 Create our Object

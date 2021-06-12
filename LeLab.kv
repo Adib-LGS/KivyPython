@@ -1,5 +1,13 @@
 WidgetsExample:
 
+<ImagesExample@GridLayout>
+    cols: 3
+    Image:
+        source: "images/cake.jpg"
+
+
+
+
 <WidgetsExample@GridLayout>:
     cols: 3
     ToggleButton:
@@ -17,17 +25,37 @@ WidgetsExample:
         font_size: "78dp"
         color: 1, 0.7, 1, 1
     Switch:
+        id: switch_state
         on_active: root.on_switch_active(self)
         size_hint: None, 1
         widht: "99dp"
+        active: True
     Slider:
         id: slide
         min: 0
         max: 100
         value: 50
         # on_value: root.slider_value(self)
+        disabled: not switch_state.active
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: str(int(slide.value))
+            font_name: "fonts/Lcd.ttf"
+            font_size: "78dp"
+            color: 0.1, 1, 1, 1
+        ProgressBar:
+            max: 100
+            value: slide.value
+    TextInput:
+        id: text_input
+        size_hint: None, 1
+        widht: "99dp"
+        text: "Tape your text here:"
+        multiLine: False
+        on_text_validate: root.on_txt_validate(self)
     Label:
-        text: str(int(slide.value))
-        font_name: "fonts/Lcd.ttf"
-        font_size: "78dp"
-        color: 0.1, 1, 1, 1
+        text: "You are: " + root.txt_input_str
+
+
+
